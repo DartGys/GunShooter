@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    public FixedJoystick fixedJoystick;
+    public FixedJoystick moveJoystick;
+    public FixedJoystick fireJoystick;
     public Rigidbody rb;
     Vector3 movement = new Vector3();
 
@@ -15,10 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Vector3 movement = new Vector3(fixedJoystick.Horizontal, 0, fixedJoystick.Vertical);
+        Vector3 movement = new Vector3(moveJoystick.Horizontal, 0, moveJoystick.Vertical);
         rb.velocity = movement.normalized * speed;
 
-        if (fixedJoystick.Horizontal != 0 || fixedJoystick.Vertical != 0)
+        if (moveJoystick.Horizontal != 0 || moveJoystick.Vertical != 0)
             transform.rotation = Quaternion.LookRotation(rb.velocity);
     }
 
@@ -42,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = movement.normalized * speed;
-        if (rb.velocity != new Vector3(0, 0, 0))
+
+        if (rb.velocity != new Vector3(0, 0, 0) && (fireJoystick.Horizontal == 0 || fireJoystick.Vertical == 0))
             transform.rotation = Quaternion.LookRotation(rb.velocity);
     }
 }

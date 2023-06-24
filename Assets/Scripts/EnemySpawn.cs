@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private GameObject _enemy;
-    [SerializeField] private EnemyFollow _enemyFollow;
 
     void Start()
     {

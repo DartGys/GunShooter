@@ -11,6 +11,7 @@ public class EnemyHit : MonoBehaviour
         {
             EnemyCount.Enemies.Remove(obj.transform);
             Destroy(obj.gameObject);
+            Destroy(gameObject);
         }
     }
 }
