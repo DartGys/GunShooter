@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        //Move();
-        MoveKeyboard();
+        Move();
+        //MoveKeyboard();
     }
 
     private void Move()
